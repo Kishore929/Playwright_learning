@@ -34,7 +34,13 @@ await expect(optionArray.length).toBe(6)
 
 //checking the value
 for(const option of optionArray){
-    
+
+    let text = await option.textContent()
+
+    if(text.includes('Apple')||text.includes('Orange')){
+        
+        page.selectOption('#fruits',text)
+    }
 }
 
 await page.waitForTimeout(3000)
