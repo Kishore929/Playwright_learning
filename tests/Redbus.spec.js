@@ -35,39 +35,6 @@ for(const option of toOptions){
     }
 }
 
-
-/*
-const date="5"
-const yearmonth="Sep"+"2023"
-
-await page.locator('.dateText').click()
-    while(true){
-
-        const currentYearmonth=await page.locator("//div[@class='DayNavigator__CalendarHeader-qj8jdz-1 fxvMrr']/div[2]").textContent()
-        
-
-        if(currentYearmonth==yearmonth){
-            break;
-        }
-        //await page.locator('.ui-icon.ui-icon-circle-triangle-w').click() // clicking previous 
-        await page.locator('.DayNavigator__IconBlock-qj8jdz-2 iZpveD').click() // clicking after 
-
-    }
-    // using loop
-    
-    
-    /*const days=await page.$$('.ui-state-default')
-    for(const day of days){
-        if(await day.textContent()==date){
-            await day.click()
-            break;
-        }
-    }*
-
-    // without using loop for selecting date
-    await page.click(`//span[@class='DayTiles__CalendarDaysSpan'][text()='${date}']`) 
-*/
-
 await page.waitForTimeout(3000)
 
 })
