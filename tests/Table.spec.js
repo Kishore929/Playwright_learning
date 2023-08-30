@@ -75,7 +75,7 @@ await page.waitForTimeout(3000)
 
 
 test.only('AdvancedTable', async ({page})=>{
-    
+    test.slow();
 await page.goto('https://letcode.in/advancedtable')
 await expect(page).toHaveURL('https://letcode.in/advancedtable')
 
