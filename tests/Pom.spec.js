@@ -1,13 +1,26 @@
-// const {test, expect} = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
+const { Login } = require('../Pages/Login');
+const { Home } = require('../Pages/Home');
+const { Cart } = require('../Pages/Cart');
 
-import {test, expect} from '@playwright/test'
+test('Pom', async ({ page }) => {
 
-test('Demostructure', async ({page})=>{
-    
-await page.goto('https://www.demoblaze.com/index.html')
-await expect(page).toHaveURL('https://www.demoblaze.com/index.html')
-await expect(page).toHaveTitle('STORE')
+    // Login
+    const login= new Login(page);
+    await login.gotoLoginpage();
+    await login.clickLogin('pavanol','test@123')
+    await page.waitForTimeout(3000)
 
-await page.waitForTimeout(3000)
+    // Home
+    const home=new Home(page);
+   await home.addProductToCart('HTC One M9');
+    await home.gotocart();
+   await page.waitForTimeout(3000);
 
-})
+    // Cart
+   const cart=new Cart(page);
+   const status=await cart.checkProductInCart('HTC One M9')
+    expect(await status).toBe(true);
+
+   await page.waitForTimeout(3000);
+});
