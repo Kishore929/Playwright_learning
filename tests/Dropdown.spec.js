@@ -42,7 +42,17 @@ for(const option of optionArray){
         page.selectOption('#fruits',text)
     }
 }
-
+ await selectfruit(optionArray, page,'Mango');
 await page.waitForTimeout(3000)
 
 })
+
+async function selectfruit(options1, page, fruit) {
+    for(const option of options1){
+        let fruitext=await option.textContent();
+
+        if(fruitext.includes(fruit)){
+           await page.selectOption('#fruits', fruit);
+        }
+    }
+}
