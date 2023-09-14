@@ -33,7 +33,11 @@ await expect(await page.locator('#name')).toBeEnabled()
         const alldays=await page.$$("//div[@class='form-group']/div[@class='form-check form-check-inline']/label")
         for(const days of alldays){
             let daytext = await days.textContent()
-            console.log(daytext)
+            // console.log(daytext)
+            if(daytext.includes('Wednesday'))
+            {
+            await days.check();
+            }
         }
 
 await page.waitForTimeout(3000)
