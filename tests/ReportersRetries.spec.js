@@ -1,4 +1,4 @@
-  /*  reporter: 'html', // list, dot, line,
+  /*  reporter: 'html', list, dot, line,
      reporter: [['json',{outputFile:'results.json'}]]
      reporter: [['junit',{outputFile:'results.xml'}]]
   

@@ -12,7 +12,7 @@ class Cart{
     {
         const productlistArray = await this.page.$$(this.productlistincart);
         for(let product of productlistArray){
-            console.log(await product.textContent())
+            // console.log(await product.textContent())
             if(productName === await product.textContent()) {
               return true;
             }
